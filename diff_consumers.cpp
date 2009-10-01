@@ -18,25 +18,25 @@ std::string::size_type ColorConsumer::getTrailingWhitespaceAmount(
 
 void ColorConsumer::highlightTrailingWhitespace(const std::string& str) {
 	if (!highlightWhitespace || str.length() <= 1) {
-		os << str << c->standard() << '\n';
+		*os << str << c->standard() << '\n';
 		return;
 	}
 	std::string::size_type space = getTrailingWhitespaceAmount(str);
-	os << str.substr(0, space) << c->redbg() << str.substr(space)
-	   << c->standard() << '\n';
+	*os << str.substr(0, space) << c->redbg() << str.substr(space)
+	    << c->standard() << '\n';
 }
 
 void ColorConsumer::onHunk(const std::string& line) {
-	os << c->blue() << line << c->standard() << '\n';
+	*os << c->blue() << line << c->standard() << '\n';
 }
 
 void ColorConsumer::onAdd(const std::string& line) {
-	os << c->green();
+	*os << c->green();
 	highlightTrailingWhitespace(line);
 }
 
 void ColorConsumer::onDelete(const std::string& line) {
-	os << c->red();
+	*os << c->red();
 	highlightTrailingWhitespace(line);
 }
 

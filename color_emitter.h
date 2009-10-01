@@ -61,7 +61,7 @@ std::ostream& operator<<(std::ostream& os, ColorEmitter::ColorManipulator cm);
 
 #ifdef _WIN32
 class WindowsColorEmitter : public ColorEmitter {
-	int oldcolor;
+	short oldcolor;
 public:
 	WindowsColorEmitter();
 	~WindowsColorEmitter();
