@@ -9,7 +9,6 @@
 #ifdef _WIN32
 #include <io.h>
 #define isatty _isatty
-#define fileno _fileno
 #else
 #include <unistd.h>
 #endif
@@ -33,7 +32,7 @@ int main() {
 #endif
 
 	if (!isatty(1)) {
-		std::cerr << "Error: won't write colors to a file" << std::endl;
+		std::cerr << "Error: won't write terminal colors to a file" << std::endl;
 		return 1;
 	}
 
