@@ -1,4 +1,6 @@
-#include "coloremitter.h"
+#include "color_emitter.h"
+#include "diff_consumer.h"
+#include "diff_parser.h"
 
 #include <algorithm>
 #include <iostream>
@@ -31,19 +33,11 @@ int main() {
 		return 1;
 	}
 
+	DiffParser dp;
+	std::auto_ptr<DiffConsumer> cc(new ColorConsumer(std::cout, &*c, true));
+	dp.addConsumer(&*cc);
+
 	for (std::string line; !std::cin.eof(); std::getline(std::cin, line)) {
-		if (line.length() > 0) {
-			if (line[0] == '+') {
-				std::cout << c->green();
-				highlightTrailingWhitespace(line, &*c);
-			} else if (line[0] == '-')
-				std::cout << c->red() << line << c->standard() << '\n';
-			else if (line.length() > 1 && line[0] == '@' && line[1] == '@')
-				std::cout << c->blue() << line << c->standard() << '\n';
-			else
-				std::cout << line << '\n';
-		} else {
-			std::cout << '\n';
-		}
+		dp.handleLine(line);
 	}
 }

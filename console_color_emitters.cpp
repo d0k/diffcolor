@@ -1,4 +1,4 @@
-#include "coloremitter.h"
+#include "color_emitter.h"
 
 #include <iostream>
 #include <cassert>
