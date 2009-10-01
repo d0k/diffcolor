@@ -14,6 +14,7 @@ TODO:
 - Command line switches
 - HTML output
 - Intra-line highlights
+- diff statistics
 - ...
 
 (c) Benjamin Kramer
