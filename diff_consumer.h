@@ -19,7 +19,9 @@ class ColorConsumer : public DiffConsumer {
 	std::ostream& os;
 	ColorEmitter *c;
 	bool highlightWhitespace;
-
+protected:
+	std::string::size_type ColorConsumer::getTrailingWhitespaceAmount(
+	                       const std::string& str);
 	void highlightTrailingWhitespace(const std::string& str);
 public:
 	ColorConsumer(std::ostream& os, ColorEmitter* c,
