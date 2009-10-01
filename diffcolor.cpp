@@ -1,7 +1,6 @@
 #include "coloremitter.h"
 
 #include <algorithm>
-#include <cstdio>
 #include <iostream>
 #include <string>
 
@@ -27,7 +26,7 @@ void highlightTrailingWhitespace(std::string& str, ColorEmitter *c) {
 int main() {
 	std::auto_ptr<ColorEmitter> c(new WindowsColorEmitter());
 
-	if (!isatty(fileno(stdout))) {
+	if (!isatty(1)) {
 		std::cerr << "Error: won't write colors to a file" << std::endl;
 		return 1;
 	}
@@ -47,6 +46,4 @@ int main() {
 			std::cout << '\n';
 		}
 	}
-
-	std::cout.flush();
 }
