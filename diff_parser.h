@@ -1,3 +1,8 @@
+//===========================================================================//
+// (c) Benjamin Kramer
+// This file is distributed under the MIT License. See LICENSE for details.
+//===========================================================================//
+
 #ifndef DIFFPARSER_H
 #define DIFFPARSER_H
 

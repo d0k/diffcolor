@@ -1,3 +1,8 @@
+//===========================================================================//
+// (c) Benjamin Kramer
+// This file is distributed under the MIT License. See LICENSE for details.
+//===========================================================================//
+
 #include "diff_parser.h"
 #include "diff_consumer.h"
 

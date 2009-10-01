@@ -1,3 +1,8 @@
+//===========================================================================//
+// (c) Benjamin Kramer
+// This file is distributed under the MIT License. See LICENSE for details.
+//===========================================================================//
+
 #ifndef COLOREMITTER_H
 #define COLOREMITTER_H
 
