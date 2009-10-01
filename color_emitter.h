@@ -54,10 +54,10 @@ public:
 	ColorManipulator whitebg() { return ColorManipulator(this, WHITE, true); }
 	ColorManipulator blackbg() { return ColorManipulator(this, BLACK, true); }
 
-	friend std::ostream& operator<<(std::ostream& os, ColorManipulator& cm);
+	friend std::ostream& operator<<(std::ostream& os, ColorManipulator cm);
 };
 
-std::ostream& operator<<(std::ostream& os, ColorEmitter::ColorManipulator& cm);
+std::ostream& operator<<(std::ostream& os, ColorEmitter::ColorManipulator cm);
 
 #ifdef _WIN32
 class WindowsColorEmitter : public ColorEmitter {

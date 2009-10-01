@@ -4,7 +4,7 @@
 #include <cassert>
 
 std::ostream& operator<<(std::ostream& os,
-                         ColorEmitter::ColorManipulator& cm) {
+                         ColorEmitter::ColorManipulator cm) {
 	cm.emitColor(os);
 	return os;
 }
