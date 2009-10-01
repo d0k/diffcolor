@@ -70,6 +70,8 @@ protected:
 };
 #else
 class PosixColorEmitter : public ColorEmitter {
+public:
+	~PosixColorEmitter();
 protected:
 	void emitColor(std::ostream& os, Color c, bool background);
 };

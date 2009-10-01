@@ -56,4 +56,31 @@ void WindowsColorEmitter::emitColor(std::ostream &os, ColorEmitter::Color c,
 
 #else // _WIN32
 
+#define COLOR(FGBG, CODE, BOLD) "\033[0;" BOLD FGBG CODE "m"
+
+#define ALLCOLORS(FGBG,BOLD) {\
+    COLOR(FGBG, "0", BOLD),\
+    COLOR(FGBG, "1", BOLD),\
+    COLOR(FGBG, "2", BOLD),\
+    COLOR(FGBG, "3", BOLD),\
+    COLOR(FGBG, "4", BOLD),\
+    COLOR(FGBG, "5", BOLD),\
+    COLOR(FGBG, "6", BOLD),\
+    COLOR(FGBG, "7", BOLD)\
+  }
+
+static const char* colorcodes[2][2][8] = {
+ { ALLCOLORS("3",""), ALLCOLORS("3","1;") },
+ { ALLCOLORS("4",""), ALLCOLORS("4","1;") }
+};
+
+PosixColorEmitter::~PosixColorEmitter() {
+	std::cout << "\033[0m";
+}
+
+void PosixColorEmitter::emitColor(std::ostream &os, ColorEmitter::Color c,
+                                    bool background) {
+	os << colorcodes[background?1:0][0][c&7];
+}
+
 #endif // POSIX

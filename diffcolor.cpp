@@ -26,7 +26,11 @@ void highlightTrailingWhitespace(std::string& str, ColorEmitter *c) {
 }
 
 int main() {
+#ifdef _WIN32
 	std::auto_ptr<ColorEmitter> c(new WindowsColorEmitter());
+#else
+	std::auto_ptr<ColorEmitter> c(new PosixColorEmitter());
+#endif
 
 	if (!isatty(1)) {
 		std::cerr << "Error: won't write colors to a file" << std::endl;
